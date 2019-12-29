@@ -10,7 +10,9 @@ class GifTitle extends Component {
 
   render() {
     return (
-      <h3 className="gif-title">{this.deGiffedTitle(this.props.title)}</h3>
+        <h3 className="gif-title animated infinite pulse slow">
+            {this.deGiffedTitle(this.props.title)}
+        </h3>
     );
   }
 }

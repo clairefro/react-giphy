@@ -11,7 +11,6 @@ class Gif extends Component {
     return (
       <img src={src} alt=""
         className='gif'
-        data-gif-title={this.gifTitle}
         onClick={this.handleClick}
       />
     );

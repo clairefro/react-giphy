@@ -7,6 +7,8 @@ import GifList from './gif_list.jsx';
 import GifTitle from './gif_title.jsx';
 import BGCred from './svq-bg-cred.jsx';
 
+
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -49,11 +51,13 @@ class App extends Component {
         <div className="left-scene">
           {/* pass search function from App comp to SearchBar comp */}
           <SearchBar search={this.search} />
+
           <div className="selected-gif">
             <Gif id={this.state.selectedGifId} />
             <GifTitle title={this.state.selectedGifTitle} />
             <BGCred />
           </div>
+          
         </div>
         <div className="right-scene">
           <GifList gifs={this.state.gifs} updateSelectedGif={this.updateSelectedGif} />
