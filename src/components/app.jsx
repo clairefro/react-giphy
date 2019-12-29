@@ -4,6 +4,7 @@ import giphy from 'giphy-api';
 import SearchBar from './search_bar.jsx';
 import Gif from './gif.jsx';
 import GifList from './gif_list.jsx';
+import GifTitle from './gif_title.jsx';
 import BGCred from './svq-bg-cred.jsx';
 
 class App extends Component {
@@ -13,12 +14,15 @@ class App extends Component {
     // define changing components
     this.state = {
       gifs: [],
-      selectedGifId: "FgTqKY4QECTOU" // default "jif"
+      // default "jif"
+      selectedGifId: "FgTqKY4QECTOU",
+      selectedGifTitle: null
     }
   }
 
   // takes query and calls giphy API to change App state (gifs)
   search = (query) => {
+    // give giphy API key, search query
     giphy('6jGCIE3zPtfo5kpkW8W8ciNVNUATZnux').search({
       q: query,
       rating: 'g',
@@ -32,9 +36,10 @@ class App extends Component {
     });
   }
 
-  updateSelectedGif = (selectedGifId) => {
+  updateSelectedGif = (selectedGifId, selectedGifTitle) => {
     this.setState({
-      selectedGifId
+      selectedGifId,
+      selectedGifTitle
     });
   }
 
@@ -46,6 +51,7 @@ class App extends Component {
           <SearchBar search={this.search} />
           <div className="selected-gif">
             <Gif id={this.state.selectedGifId} />
+            <GifTitle title={this.state.selectedGifTitle} />
             <BGCred />
           </div>
         </div>

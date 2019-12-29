@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 class Gif extends Component {
   handleClick = (e) => {
-    // updateSelectedGif using function passed from grand-parent (App) through parent (GifList)
-    this.props.updateSelectedGif(this.props.id);
+    // update selected using function passed from grand-parent (App) through parent (GifList)
+    this.props.updateSelectedGif(this.props.id, this.props.gifTitle);
   }
 
   render() {
@@ -11,6 +11,7 @@ class Gif extends Component {
     return (
       <img src={src} alt=""
         className='gif'
+        data-gif-title={this.gifTitle}
         onClick={this.handleClick}
       />
     );
