@@ -14,8 +14,11 @@
     border: none;
     font-size: 2.6em;
     box-shadow: none;
+    transition: 0.3s;
     &:focus {
       box-shadow: none;
+      background-color: #fff9c4;
+      transition: 0.3s;
     }
   }
 
