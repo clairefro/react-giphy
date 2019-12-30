@@ -1,5 +1,10 @@
 Try app here: https://clairefro.github.io/react-giphy/
 
-**NOTE: Must [allow mixed content](https://pearsonnacommunity.force.com/support/s/article/How-to-display-mixed-content-with-Google-Chrome-Internet-Explorer-or-Firefox-1408394589290) in Chrome by clicking the shield icon in the url bar.** 
+**NOTE: Must [allow mixed content](https://pearsonnacommunity.force.com/support/s/article/How-to-display-mixed-content-with-Google-Chrome-Internet-Explorer-or-Firefox-1408394589290) in Chrome by clicking the shield icon in the url bar.** (API call to Giphy is http while GitHub Pages is hosted https)
 
-This app makes an API call to Giphy (http) from github pages (https) to fetch gifs on change in search query.
+This app to fetches gifs from [Giphy](https://giphy.com/) on changes in search query. Gifs in the right pane can be selected for larger view.
+
+Built from [Le Wagon's react boilerplate](https://github.com/lewagon/react-boilerplate) to learn some basic principles of React.
+
+
+
