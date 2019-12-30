@@ -7,6 +7,12 @@ class Gif extends Component {
   }
 
   render() {
+
+    // don't try to render the gif if id is null
+    if (!this.props.id) {
+      return null;
+    }
+
     const src = `https://media2.giphy.com/media/${this.props.id}/giphy.gif`;
     return (
       <img src={src} alt=""
