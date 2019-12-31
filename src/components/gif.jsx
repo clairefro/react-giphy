@@ -7,7 +7,6 @@ class Gif extends Component {
   }
 
   render() {
-
     // don't try to render the gif if id is null
     if (!this.props.id) {
       return null;
