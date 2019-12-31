@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import giphy from 'giphy-api';
 
-import SearchBar from './search_bar.jsx';
-import Gif from './gif.jsx';
-import GifList from './gif_list.jsx';
-import GifTitle from './gif_title.jsx';
-import BGCred from './svq-bg-cred.jsx';
+import GphApiClient from 'giphy-js-sdk-core';
+
+import SearchBar from './search_bar';
+import Gif from './gif';
+import GifList from './gif_list';
+import GifTitle from './gif_title';
+import BGCred from './svq-bg-cred';
+
+
+// set up giphy api client
+const client = GphApiClient("6jGCIE3zPtfo5kpkW8W8ciNVNUATZnux");
 
 class App extends Component {
   constructor(props) {
@@ -17,22 +23,23 @@ class App extends Component {
       // default "jif"
       selectedGifId: "FgTqKY4QECTOU",
       selectedGifTitle: null
-    }
+    };
   }
 
   // takes query and calls giphy API to change App state (gifs)
   search = (query) => {
     // give giphy API key, search query
-    giphy('6jGCIE3zPtfo5kpkW8W8ciNVNUATZnux').search({
+    client.search('gifs', {
       q: query,
       rating: 'g',
       limit: 20
-    }, (err, result) => {
-      // result is the answer from api
-      // now update App > gifs state
+    }).then((response) => {
+      // update App state to include new gif object array
       this.setState({
-        gifs: result.data
+        gifs: response.data
       });
+    }).catch((err) => {
+      console.log(err);
     });
   }
 
